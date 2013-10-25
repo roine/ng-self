@@ -6,17 +6,25 @@ define(['angular', 'app'], function(angular, app) {
 		$routeProvider
 		.when('/', {
 			templateUrl: 'app/partials/homepage.html',
-			controller: 'HomeCtrl'
+			controller: 'HomeCtrl',
+			index: 1
 		})
 		.when('/view1', {
 			templateUrl: 'app/partials/partial1.html',
-			controller: 'MyCtrl1'
+			controller: 'MyCtrl1',
+			index: 2
 		})
-		.when('/currency', {
+		.when('/currency/from/:from/to/:to', {
 			templateUrl: 'app/partials/currency.html',
-			controller: 'CurrencyCtrl'
+			controller: 'CurrencyCtrl',
+			index: 2
 		})
-		.otherwise({redirectTo: '/view1'});
+		.when('/currency/:val/:from/to/:to', {
+			templateUrl: 'app/partials/currency.html',
+			controller: 'CurrencyCtrl',
+			index: 3
+		})
+		.otherwise({redirectTo: '/'});
 	}]);
 
 });

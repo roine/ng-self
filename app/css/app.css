@@ -2097,9 +2097,9 @@ textarea {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 18, app/sass/_animation.scss */
+/* line 20, app/sass/_animation.scss */
 
-.slide.ng-enter {
+.slide.rtl.ng-enter {
   visibility: hidden;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -2112,15 +2112,15 @@ textarea {
   z-index: 999;
 }
 
-/* line 26, app/sass/_animation.scss */
+/* line 27, app/sass/_animation.scss */
 
-.slide.ng-enter-active {
+.slide.rtl.ng-enter-active {
   visibility: visible;
 }
 
-/* line 31, app/sass/_animation.scss */
+/* line 30, app/sass/_animation.scss */
 
-.slide.ng-leave {
+.slide.rtl.ng-leave {
   visibility: visible;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -2128,12 +2128,47 @@ textarea {
   -webkit-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-animation: scaleDown 1s ease both;
-  animation: scaleDown 1s ease both;
+  -webkit-animation: scaleDown 1s 0.2s ease both;
+  animation: scaleDown 1s 0.2s ease both;
+}
+
+/* line 41, app/sass/_animation.scss */
+
+.slide.ltr.ng-enter {
+  visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-animation: moveFromLeft 0.8s ease both;
+  animation: moveFromLeft 0.8s ease both;
+  z-index: 999;
+}
+
+/* line 48, app/sass/_animation.scss */
+
+.slide.ltr.ng-enter-active {
+  visibility: visible;
+}
+
+/* line 51, app/sass/_animation.scss */
+
+.slide.ltr.ng-leave {
+  visibility: visible;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-animation: scaleDown 1s 0.2s ease both;
+  animation: scaleDown 1s 0.2s ease both;
 }
 
 @-webkit-keyframes scaleUp {
-  /* line 43, app/sass/_animation.scss */
+  /* line 63, app/sass/_animation.scss */
   from {
     opacity: 0;
     -webkit-transform: scale(0.8);
@@ -2142,7 +2177,7 @@ textarea {
 }
 
 @keyframes scaleUp {
-  /* line 43, app/sass/_animation.scss */
+  /* line 63, app/sass/_animation.scss */
   from {
     opacity: 0;
     -webkit-transform: scale(0.8);
@@ -2151,25 +2186,8 @@ textarea {
   }
 }
 
-@-webkit-keyframes moveToLeft {
-  /* line 47, app/sass/_animation.scss */
-  to {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes moveToLeft {
-  /* line 47, app/sass/_animation.scss */
-  to {
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-}
-
 @-webkit-keyframes scaleDown {
-  /* line 51, app/sass/_animation.scss */
+  /* line 67, app/sass/_animation.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.8);
@@ -2178,7 +2196,7 @@ textarea {
 }
 
 @keyframes scaleDown {
-  /* line 51, app/sass/_animation.scss */
+  /* line 67, app/sass/_animation.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.8);
@@ -2188,19 +2206,62 @@ textarea {
 }
 
 @-webkit-keyframes moveFromRight {
-  /* line 55, app/sass/_animation.scss */
+  /* line 71, app/sass/_animation.scss */
   from {
-    -webkit-transform: translateX(100%) rotateZ(5deg);
-    transform: translateX(100%) rotateZ(5deg);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
 @keyframes moveFromRight {
-  /* line 55, app/sass/_animation.scss */
+  /* line 71, app/sass/_animation.scss */
   from {
-    -webkit-transform: translateX(100%) rotateZ(5deg);
-    -ms-transform: translateX(100%) rotateZ(5deg);
-    transform: translateX(100%) rotateZ(5deg);
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes moveToRight {
+  /* line 74, app/sass/_animation.scss */
+  to {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes moveToRight {
+  /* line 74, app/sass/_animation.scss */
+  to {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes moveFromLeft {
+  /* line 77, app/sass/_animation.scss */
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveFromLeft {
+  /* line 77, app/sass/_animation.scss */
+  from {
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveFromLeft {
+  /* line 80, app/sass/_animation.scss */
+  to {
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -2219,9 +2280,10 @@ body {
 
 body {
   background: #333;
+  overflow: hidden;
 }
 
-/* line 11, app/sass/_custom.scss */
+/* line 12, app/sass/_custom.scss */
 
 a.widgets {
   border: 1px solid silver;
@@ -2233,7 +2295,7 @@ a.widgets {
   border-radius: 3px;
 }
 
-/* line 19, app/sass/_custom.scss */
+/* line 20, app/sass/_custom.scss */
 
 a.widgets.currency {
   -webkit-box-shadow: inset 0 0 5px lime;
@@ -2241,20 +2303,20 @@ a.widgets.currency {
   border-width: 0px;
 }
 
-/* line 26, app/sass/_custom.scss */
+/* line 27, app/sass/_custom.scss */
 
 .content {
   height: 100%;
   background: white;
 }
 
-/* line 29, app/sass/_custom.scss */
+/* line 30, app/sass/_custom.scss */
 
 .content.homepage {
   background: #7bb7fa;
 }
 
-/* line 32, app/sass/_custom.scss */
+/* line 33, app/sass/_custom.scss */
 
 .content.currency {
   background: #FDC162;

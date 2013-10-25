@@ -3,11 +3,11 @@ define(['angular', 'services'], function (angular) {
 
 	return angular.module('brume.controllers', ['brume.services'])
 
-		.controller('HomeCtrl', ['$scope', '$injector', function($scope, $injector) {
-			require(['controllers/homectrl'], function(homectrl) {
-				$injector.invoke(homectrl, this, {'$scope': $scope});
-			});
-		}])
+	.controller('HomeCtrl', ['$scope', '$injector', function($scope, $injector) {
+		require(['controllers/homectrl'], function(homectrl) {
+			$injector.invoke(homectrl, this, {'$scope': $scope});
+		});
+	}])
 		// Sample controller where service is being used
 		.controller('MyCtrl1', ['$scope', 'version', function ($scope, version) {
 			$scope.scopedAppVersion = version;
@@ -21,5 +21,22 @@ define(['angular', 'services'], function (angular) {
 				// Furthermore we need to pass on the $scope as it's unique to this controller
 				$injector.invoke(currencyctrl, this, {'$scope': $scope});
 			});
+		}])
+		.controller('BaseCtrl', ['$scope', '$route', '$rootScope', function($scope, $route, $rootScope){
+			var current_route,
+				klass;
+			$scope.$on('$locationChangeSuccess', function(event) {
+				if(current_route < $route.current.index){
+					klass = 'rtl';
+				}
+				else if(current_route > $route.current.index){
+					klass = 'ltr';
+				}
+				else{
+					klass = 'equal';
+				}
+				current_route = $route.current.index;
+				$scope.direction = klass;
+			});
 		}]);
-});
+	});

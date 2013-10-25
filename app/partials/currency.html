@@ -4,6 +4,9 @@
 		<p>
 			{{ welcomeMessage }}
 		</p>
+		<select ng-model="currency.from" ng-options="code as code+' - '+currency for (code, currency) in currencies"></select>
+		<div ng-click='switch()'></div>
+		<select ng-model='currency.to' ng-options='code as code+" - "+currency for (code, currency) in currencies'></select>
 		<p>
 			Showing of 'interpolate' filter:
 			{{ 'Current version is v%VERSION%.' | interpolate }}

@@ -1,12 +1,11 @@
 define([], function() {
 	'use strict';
 	
-	return ['$scope', '$http', function($scope, $http) {
+	return ['$scope', '$http',function($scope, $http) {
 		// You can access the scope of the controller from here
-		$scope.welcomeMessage = 'hey this is home!';
 
 		var tools = [{
-			url: '#!/currency',
+			url: '#!/currency/from/USD/to/EUR',
 			klass: 'currency',
 			text: 'Currency'
 		},{
