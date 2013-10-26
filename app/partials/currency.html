@@ -4,9 +4,9 @@
 		<p>
 			{{ welcomeMessage }}
 		</p>
-		<input type="text" ng-model='currencies.val'>
+		<input type="text" ng-model='currencies.val' placeholder='(60000 / 12) * .7'>
 		<select ng-model="currencies.from" ng-options="code as code+' - '+currency for (code, currency) in currencies.all"></select>
-		<div ng-click='switch()'></div>
+		<button ng-click='switch()'>Switch bitch</button>
 		{{currencies.result}}
 		<select ng-model='currencies.to' ng-options='code as code+" - "+currency for (code, currency) in currencies.all'></select>
 		<p>

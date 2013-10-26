@@ -21,20 +21,20 @@
 		visibility: hidden;
 		backface-visibility: hidden;
 		transform: translate3d(0, 0, 0);
-		animation: moveFromRight .8s ease both;
-		z-index:999;
+		animation: moveFromRight .6s linear both;
 	}
 	&.ng-enter-active {
 		visibility: visible;
+		z-index:1000;
 	}
 	&.ng-leave {
 		visibility:visible;
 		backface-visibility: hidden;
 		transform: translate3d(0, 0, 0);
-		animation: scaleDown 1s .2s ease both;
+		animation: scaleDown .5s .2s ease both;
 	}
 	&.ng-leave-active {
-
+	z-index: 1;
 	}
 }
 .slide.ltr{
@@ -42,20 +42,20 @@
 		visibility: hidden;
 		backface-visibility: hidden;
 		transform: translate3d(0, 0, 0);
-		animation: moveFromLeft .8s ease both;
-		z-index:999;
+		animation: moveFromLeft .6s linear both;
 	}
 	&.ng-enter-active {
 		visibility: visible;
+		z-index:1000;
 	}
 	&.ng-leave {
 		visibility:visible;
 		backface-visibility: hidden;
 		transform: translate3d(0, 0, 0);
-		animation: scaleDown 1s .2s ease both;
+		animation: scaleDown .5s .2s ease both;
 	}
 	&.ng-leave-active {
-
+		z-index:1;
 	}
 }
 
